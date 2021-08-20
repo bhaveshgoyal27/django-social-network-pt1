@@ -33,6 +33,12 @@ class Profile(models.Model):
 		self.slug = to_slug
 		super().save(*args,**kwargs)
 
+	def get_friends(self):
+		return self.friends.all()
+
+	def get_friends_no(self):
+		return self.friends.all().count()
+
 STATUS_CHOICES = (
     ('send', 'send'),
     ('accepted', 'accepted')
